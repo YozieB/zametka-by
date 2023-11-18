@@ -8,7 +8,7 @@ const useInput = (initialValue, validations) => {
   const onChange = e => {
     setValue(e.target.value)
   }
-  const onBlur = e => {
+  const onBlur = () => {
     setIsDirty(true)
   }
   return {

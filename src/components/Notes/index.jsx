@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Button } from '../Button/index.jsx'
 import editIcon from '../../icons/edit.svg'
 import TimeAgo from 'timeago-react'

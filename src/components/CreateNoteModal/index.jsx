@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Index } from '../SideModal/index.jsx'
 import createNoteIcon from '../../icons/createNewNote.svg'
 import { Options } from '../Options/index.jsx'
 import { Button } from '../Button/index.jsx'
 import { useNotesStore } from '../../store/store.js'
-import useInput from '../../hooks/useInput.jsx'
+import useInput from '../../hooks/useInput.js'
 import attention from '../../icons/attention.svg'
 
 export const CreateNoteModal = ({ handleClose, isVisible, heading }) => {

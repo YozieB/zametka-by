@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import closeIcon from '../../icons/closeSideModal.svg'
-import { useOutsideClose } from '../../hooks/useOutsideClose.jsx'
+import { useOutsideClose } from '../../hooks/useOutsideClose.js'
 
 export const Index = ({ children, isVisible, heading, handleClose }) => {
   const wrapperRef = useRef(null)

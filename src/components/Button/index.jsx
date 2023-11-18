@@ -23,8 +23,7 @@ export const Button = ({
             display: 'flex',
             width: '100%',
             justifyContent: 'center',
-            alignItems: 'center',
-            opacity: 1,
+            alignItems: 'center'
           }}
           wrapperClass=""
           visible={true}

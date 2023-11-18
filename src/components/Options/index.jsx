@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import arrow from '../../icons/arrowDown.svg'
-import { useOutsideClose } from '../../hooks/useOutsideClose.jsx'
+import { useOutsideClose } from '../../hooks/useOutsideClose.js'
 
 export const Options = ({ options, handleStatusChange, currentStatus }) => {
   const [activeOption, setActiveOption] = useState('')

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Header } from '../../components/Header/index.jsx'
 import { Notes } from '../../components/Notes/index.jsx'
 import { CreateNoteModal } from '../../components/CreateNoteModal/index.jsx'
