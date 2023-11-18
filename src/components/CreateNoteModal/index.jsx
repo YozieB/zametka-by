@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { SideModal } from '../SideModal/SideModal.jsx'
+import { Index } from '../SideModal/index.jsx'
 import createNoteIcon from '../../icons/createNewNote.svg'
 import { Options } from '../Options/index.jsx'
 import { Button } from '../Button/index.jsx'
@@ -43,7 +43,7 @@ export const CreateNoteModal = ({ handleClose, isVisible, heading }) => {
   }, [isNoteCreationLoading])
 
   return (
-    <SideModal
+    <Index
       isVisible={isVisible}
       heading={heading}
       handleClose={handleClose}
@@ -136,6 +136,6 @@ export const CreateNoteModal = ({ handleClose, isVisible, heading }) => {
           </Button>
         </div>
       </form>
-    </SideModal>
+    </Index>
   )
 }

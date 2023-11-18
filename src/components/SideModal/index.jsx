@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import closeIcon from '../../icons/closeSideModal.svg'
 import { useOutsideClose } from '../../hooks/useOutsideClose.jsx'
 
-export const SideModal = ({ children, isVisible, heading, handleClose }) => {
+export const Index = ({ children, isVisible, heading, handleClose }) => {
   const wrapperRef = useRef(null)
   useOutsideClose(wrapperRef, handleClose)
   return (
