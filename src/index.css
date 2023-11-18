@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Lato, sans-serif;
+  background-color: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #202023;
+}
+
+body, html, #root {
+  height: 100%;
+}
+
+#root {
+  max-width: 1515px;
+  margin: 0 auto;
+  /*padding: 0 24px 32px;*/
+}
+
+.placeholder {
+  pointer-events: none;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: .2s;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  color: #7E7E80;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.input:focus-visible + .placeholder, .input:not(:placeholder-shown) + .placeholder {
+  transform: translateY(-180%);
+  font-size: 10px;
+  line-height: 12px;
+}
+
+/* STATUS COLORS */
+
+.status-checked {
+  background-color: #bffabd;
+}
+
+.status-normal {
+  background-color: #d2e0f4;
+}
+
+.status-critical {
+  background-color: #fcbaba;
+}
