@@ -65,7 +65,7 @@ export const deleteNote = note => {
 export const googleLogin = url => {
   return account.createOAuth2Session(
     'google',
-    `https://zametka-by.vercel.app/${url}`,
+    'https://zametka-by.vercel.app/' + url,
     'https://zametka-by.vercel.app/error'
   )
 }
