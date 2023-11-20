@@ -23,12 +23,18 @@ body {
   color: #202023;
 }
 
+html {
+  /*scrollbar-gutter: stable;*/
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
 body, html, #root {
   height: 100%;
 }
 
 #root {
-  max-width: 1515px;
+  /*max-width: 1515px;*/
   margin: 0 auto;
   /*padding: 0 24px 32px;*/
 }

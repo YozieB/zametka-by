@@ -14,11 +14,11 @@ export const Options = ({ options, handleStatusChange, currentStatus }) => {
   }
 
   useEffect(() => {
-    !currentStatus.value && setActiveOption('')
-  }, [currentStatus.value])
+    !currentStatus ? setActiveOption('') : setActiveOption(currentStatus)
+  }, [currentStatus])
 
   useEffect(() => {
-    handleStatusChange({ target: { value: activeOption.toLowerCase() } })
+    handleStatusChange({ target: { value: activeOption } })
   }, [activeOption])
 
   const openOptions = () => {
