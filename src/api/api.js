@@ -3,7 +3,7 @@ import { Account, Client, Databases, ID, Query } from 'appwrite'
 const client = new Client()
 client
   .setEndpoint('https://cloud.appwrite.io/v1')
-  .setProject('6553a218b0966f5f5f85')
+  .setProject('6553a218b0966f5f5f85').setKey('360a36e5144837b348a893322a815e4b412f037ec316da16ddc62a4fc1b03d25f5609b9286c36cf5f11dbcfc63c3c53391775a196b5accc633b9140802e15b78ff8dad1a329eab630971a7094a944acdee67ed5d4daba9148a1e5641cf594e76d37d87ee2a785a222cba163fc7483197520d46d916bec021f860990c4fbe746d')
 const databases = new Databases(client)
 const account = new Account(client)
 
