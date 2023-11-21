@@ -2,7 +2,7 @@ import { Account, Client, Databases, ID, Query } from 'appwrite'
 
 const client = new Client()
 client
-  .setEndpoint('https://cloud.appwrite.io/v1')
+  .setEndpoint('https://api.zametka.yozie.ru')
   .setProject('6553a218b0966f5f5f85')
 const databases = new Databases(client)
 const account = new Account(client)
@@ -65,8 +65,8 @@ export const deleteNote = note => {
 export const googleLogin = url => {
   return account.createOAuth2Session(
     'google',
-    'https://zametka-by.vercel.app/' + url,
-    'https://zametka-by.vercel.app/error'
+    'https://zametka.yozie.ru/' + url,
+    'https://zametka.yozie.ru/error'
   )
 }
 
