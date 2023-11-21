@@ -14,7 +14,7 @@
   height: 100%;
 }
 
-input {
+input,textarea {
   -webkit-appearance: none;
 }
 
