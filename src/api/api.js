@@ -2,7 +2,7 @@ import { Account, Client, Databases, ID, Query } from 'appwrite'
 
 const client = new Client()
 client
-  .setEndpoint('https://zametka.yozie.ru')
+  .setEndpoint('https://api.zametka.yozie.ru')
   .setProject('6553a218b0966f5f5f85')
 const databases = new Databases(client)
 const account = new Account(client)
