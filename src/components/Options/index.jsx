@@ -41,20 +41,20 @@ export const Options = ({ options, handleStatusChange, currentStatus }) => {
           className={
             `${activeOption && 'input'}` +
             ' ' +
-            'caret-transparent text-[#38383B] w-[100%] rounded-[8px] py-[18px] px-[16px] shadow-[inset_0_0_0_1px_#CACACD] focus-visible:outline-[transparent] text-[16px] leading-[20px] cursor-pointer focus-visible:shadow-[inset_0_0_0_2px_#67A0F0]'
+            'caret-transparent text-[#38383B] w-[100%] rounded-[8px] md:py-[18px] py-3 md:px-[16px] px-4 shadow-[inset_0_0_0_1px_#CACACD] focus-visible:outline-[transparent] md:text-l text-sm cursor-pointer focus-visible:shadow-[inset_0_0_0_2px_#67A0F0]'
           }
           readOnly
         />
-        <span className="placeholder">Status</span>
+        <span className="placeholder placeholder--options">Status</span>
         <img
-          className="absolute right-[16px] top-[0%] cursor-pointer"
+          className="absolute md:right-[16px] right-3 top-[0%] cursor-pointer"
           src={arrow}
           alt="Dropdown"
         />
       </label>
       <ul
         className={
-          'transition-opacity z-[2] absolute top-[calc(100%+6px)] rounded-[6px] bg-[#fff] shadow-[0_1px_8px_0_rgba(0,0,0,0.08)] w-[100%] p-[8px]' +
+          'transition-opacity z-[2] absolute top-[calc(100%+6px)] rounded-[6px] bg-[#fff] shadow-[0_1px_8px_0_rgba(0,0,0,0.08)] w-[100%] md:p-2 p-1' +
           ' ' +
           `${
             isOptionsVisible
@@ -65,7 +65,7 @@ export const Options = ({ options, handleStatusChange, currentStatus }) => {
       >
         {options.map(el => (
           <li
-            className="h-[40px] flex items-center w-[100%] select-none cursor-pointer pl-[12px] text-[14px] leading-[16px] hover:bg-[#ECEDF0] rounded-[6px] active:bg-[#CACACD]"
+            className="h-[40px] flex items-center w-[100%] select-none cursor-pointer pl-[12px] text-[14px] hover:bg-[#ECEDF0] rounded-[6px] active:bg-[#CACACD]"
             key={el}
             onClick={() => selectOption(el)}
           >

@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from 'react'
 import { useNotesStore } from '../../store/store.js'
 
 export const Filter = () => {
   const options = useNotesStore(state => state.availableOptions)
   const filterNotesByStatus = useNotesStore(state => state.filterNotesByStatus)
-  const filteredNotes = useNotesStore(state => state.filteredNotes)
   const notes = useNotesStore(state => state.notes)
   const activeFilter = useNotesStore(state => state.activeFilter)
   const setActiveFilter = useNotesStore(state => state.setActiveFilter)
-
-  // const [activeFilter, setActiveFilter] = useState(notes || filteredNotes)
-
   return (
-    <ul className="flex gap-x-[12px]">
+    <ul className="flex gap-2 md:gap-3 flex-wrap">
       <li
         onClick={() => {
           filterNotesByStatus('')
           setActiveFilter('')
         }}
         className={
-          'py-[4px] px-[16px] shadow-[inset_0_0_0_1px_#626268] rounded-[9999px] font-semibold text-[14px] cursor-pointer' +
+          'whitespace-nowrap py-1 px-4 rounded-[9999px] font-semibold md:text-sm text-xs cursor-pointer' +
           ' ' +
           `${
             activeFilter === ''
@@ -33,7 +28,7 @@ export const Filter = () => {
       {options.map(el => (
         <li
           className={
-            'py-[4px] px-[16px] rounded-[9999px] font-semibold text-[14px]' +
+            'whitespace-nowrap py-1 px-4 rounded-[9999px] font-semibold md:text-sm text-xs' +
             ' ' +
             `${
               notes.filter(elem => elem.status === el).length

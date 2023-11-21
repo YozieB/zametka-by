@@ -1,5 +1,6 @@
 import style from './style.module.scss'
 import { Oval } from 'react-loader-spinner'
+
 export const Button = ({
   children,
   variant,
@@ -10,7 +11,7 @@ export const Button = ({
   return (
     <button
       {...rest}
-      className={`${style.button} ${style[variant]} ${
+      className={`md:py-2 py-1 md:px-4 px-2 font-semibold select-none cursor-pointer rounded-[6px] md:text-l text-sm ${style[variant]} ${
         extraClasses && extraClasses
       }`}
     >

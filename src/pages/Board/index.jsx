@@ -19,6 +19,9 @@ export const Board = () => {
   const [isNotesLoading, setIsNotesLoading] = useState(true)
   const setNotes = useNotesStore(state => state.setNotes)
   const setActiveBoard = useBoardStore(state => state.setActiveBoard)
+  const filteredNotes = useNotesStore(state => state.filteredNotes)
+  const setFilteredNotes = useNotesStore(state => state.setFilteredNotes)
+  const setActiveFilter = useNotesStore(state => state.setActiveFilter)
   const navigate = useNavigate()
   const setUser = useUserStore(state => state.setUser)
   const { boardId } = useParams()
@@ -27,6 +30,10 @@ export const Board = () => {
 
     getNotes(boardId)
       .then(response => {
+        if (filteredNotes) {
+          setFilteredNotes([])
+          setActiveFilter('')
+        }
         setNotes(response.documents[0].notes)
         setActiveBoard(response.documents[0])
         localStorage.removeItem('possibleBoard')
@@ -67,7 +74,7 @@ export const Board = () => {
 
   return (
     <main
-      className="flex flex-col gap-y-[20px] pl-[24px] pr-[24px] pb-[32px] select-none h-[100%] max-w-[1515px] mx-[auto]"
+      className="flex flex-col gap-y-3 md:gap-y-6 md:pl-6 md:pr-6 pl-3 pr-3 md:pb-7 pb-2 select-none h-[100%] max-w-[1515px] mx-[auto]"
       style={{ scrollbarGutter: 'stable' }}
     >
       {isNotesLoading ? (

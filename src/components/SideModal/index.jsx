@@ -40,7 +40,6 @@ export const SideModal = ({
   const status = useInput('', { isEmpty: true })
   const text = useInput('', { isEmpty: true, minLength: 3 })
   const { boardId } = useParams()
-  const boards = useBoardStore(state => state.boards)
 
   useEffect(() => {
     if (!isEditNoteDataEmpty) {
@@ -85,7 +84,7 @@ export const SideModal = ({
   }
 
   useEffect(() => {
-    if (isVisible && variant === 'create') {
+    if (isVisible && ['create', 'board'].includes(variant)) {
       clearInputsData()
     }
   }, [isVisible])
@@ -110,42 +109,43 @@ export const SideModal = ({
   return (
     <div
       className={
-        'h-[100%] min-w-[65%] fixed right-0 top-0 bg-[#fff] shadow-[-4px_0_24px_0_rgba(169,169,169,0.31)] transition-transform duration-[600ms] flex flex-col z-[11]' +
+        'h-[100%] md:min-w-[65%] min-w-[100%] fixed right-0 top-0 bg-[#fff] shadow-[-4px_0_24px_0_rgba(169,169,169,0.31)] transition-transform duration-[600ms] flex flex-col z-[11]' +
         ' ' +
         `${isVisible ? 'translate-x-[0%]' : 'translate-x-[100%]'}`
       }
       ref={wrapperRef}
     >
-      <div className="p-[12px] pl-[16px] pr-[24px] mb-[24px] flex items-center justify-between">
+      <div className="md:pt-4 pt-2 md:pb-4 pb-2 pl-4 md:pr-6 pr-4 md:mb-6 mb-3 flex items-center justify-between">
         <p className="leading-[24px]">{heading}</p>
         <button onClick={handleClose}>
           <img src={closeIcon} alt="close" />
         </button>
       </div>
-      <div className="self-center max-w-[420px] w-[100%] flex flex-col gap-y-[24px]">
-        <div className="flex items-center justify-center gap-x-[8px]">
+      <div className="self-center max-w-auto md:max-w-[420px] w-[100%] flex flex-col md:gap-y-6 gap-y-5 pl-4 pr-4 md:pl-0 md:pr-0">
+        <div className="flex items-center justify-center gap-x-2">
           <img
             src={variant === 'create' ? createNoteIcon : editNoteIcon}
             alt="Create note"
+            className="w-7"
           />
-          <h3 className="font-['Inter'] font-bold text-[18px] text-[#38383B]">
+          <h3 className="font-['Inter'] font-bold text-xl text-[#38383B]">
             {subHeading}
           </h3>
         </div>
         <form
-          className="flex flex-col gap-y-[24px]"
+          className="flex flex-col md:gap-y-6 gap-y-5"
           onSubmit={e => submitForm(e, variant)}
         >
           <label className="relative">
             {title.isDirty && (title.isEmpty || title.minLengthError) && (
-              <div className="text-[12px] text-[#C40808] absolute bottom-[-20px] left-[16px] flex items-center gap-x-[4px]">
+              <div className="md:text-sm text-xs text-[#C40808] absolute md:bottom-[-20px] bottom-[-17px] md:left-[16px] left-[12px] flex items-center gap-x-1">
                 <img src={attention} alt="Error" />
                 <p>Minimal length is 3 symbols</p>
               </div>
             )}
             <input
               className={
-                'input w-[100%] rounded-[8px] py-[18px] px-[16px] shadow-[inset_0_0_0_1px_#CACACD] focus-visible:outline-[transparent] focus-visible:shadow-[inset_0_0_0_2px_#67A0F0] text-[16px] leading-[20px]' +
+                'input w-[100%] rounded-[8px] md:py-[18px] py-3 md:px-[16px] px-4 shadow-[inset_0_0_0_1px_#CACACD] focus-visible:outline-[transparent] focus-visible:shadow-[inset_0_0_0_2px_#67A0F0] md:text-l text-sm' +
                 ' ' +
                 `${
                   title.isDirty &&
@@ -173,7 +173,7 @@ export const SideModal = ({
           <label className="relative">
             <textarea
               className={
-                "font-['Inter'] w-[100%] rounded-[8px] py-[8px] px-[12px] shadow-[inset_0_0_0_1px_#CACACD] focus-visible:outline-[transparent] focus-visible:shadow-[inset_0_0_0_2px_#67A0F0] leading-[20px] min-h-[100px] text-[14px]" +
+                "font-['Inter'] w-[100%] rounded-[8px] md:py-2 py-1 px-3 shadow-[inset_0_0_0_1px_#CACACD] focus-visible:outline-[transparent] focus-visible:shadow-[inset_0_0_0_2px_#67A0F0] min-h-[100px] md:text-l text-sm" +
                 ' ' +
                 `${
                   text.isDirty &&
@@ -188,15 +188,15 @@ export const SideModal = ({
               onBlur={e => text.onBlur(e)}
             ></textarea>
             {text.isDirty && (text.isEmpty || text.minLengthError) && (
-              <div className="text-[12px] text-[#C40808] absolute bottom-[-20px] left-[16px] flex items-center gap-x-[4px]">
+              <div className="md:text-sm text-xs text-[#C40808] absolute md:bottom-[-20px] bottom-[-17px] md:left-[16px] left-[12px] flex items-center gap-x-1">
                 <img src={attention} alt="Error" />
                 <p>Minimal length is 3 symbols</p>
               </div>
             )}
           </label>
-          <div className="flex items-center justify-between gap-x-[12px] mt-[24px]">
+          <div className="flex items-center justify-between gap-x-[12px] md:mt-[24px] mt-0">
             <Button
-              extraClasses="w-[100%]"
+              extraClasses="w-[100%] h-8 md:h-auto"
               variant="outlined"
               onClick={e => {
                 e.preventDefault()
@@ -214,7 +214,7 @@ export const SideModal = ({
                 isUpdateNoteLoading ||
                 isAddBoardLoading
               }
-              extraClasses="w-[100%]"
+              extraClasses="w-[100%] h-8 md:h-auto"
               isLoading={
                 isNoteCreationLoading ||
                 isUpdateNoteLoading ||

@@ -11,18 +11,18 @@ export const ProfileBoard = ({ board, handleOpenRemoveModal }) => {
   }
 
   return (
-    <div className="max-w-sm min-w-[250px] p-4 bg-white border border-gray-200 rounded-lg shadow relative">
-      <button className="absolute right-4 w-4" onClick={removeBoard}>
+    <div className="w-[250px] md:p-4 p-2 bg-white border border-gray-200 rounded-lg shadow relative">
+      <button className="absolute md:right-4 w-4 right-2" onClick={removeBoard}>
         <img src={deleteIcon} alt="Delete board" />
       </button>
-      <h5 className="mb-1 text-xl font-semibold tracking-tight text-gray-900">
+      <h5 className="md:mb-1 md:text-xl text-l font-semibold tracking-tight text-gray-900 max-w-[90%] whitespace-nowrap text-ellipsis overflow-hidden">
         {board.title}
       </h5>
       <p className="mb-2 font-normal text-sm text-gray-500">
         {board.description}
       </p>
       <Link
-        className="inline-flex items-center text-blue-600"
+        className="inline-flex items-center text-blue-600 md:text-l text-sm"
         to={`/board/${board.$id}`}
       >
         Go to board

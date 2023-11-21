@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import closeImage from '../../icons/closeActions.svg'
 import { useOutsideClose } from '../../hooks/useOutsideClose.js'
 import { useNotesStore } from '../../store/store.js'
@@ -68,24 +68,24 @@ export const Actions = ({
       <div
         onClick={openMenu}
         className={
-          'transition-all absolute w-[32px] h-[32px] right-[16px] flex flex-col items-center justify-center gap-[2.5px] cursor-pointer hover:bg-[#ECEDF0] rounded-[6px] active:bg-[#CACACD]' +
+          'transition-all absolute md:w-8 md:h-8 md:right-4 w-6 h-6 top-2 right-2 flex flex-col items-center justify-center gap-[2.5px] cursor-pointer hover:bg-[#ECEDF0] rounded-[6px] active:bg-[#CACACD]' +
           ' ' +
           `${isVisible && 'pointer-events-none'}`
         }
       >
-        <span className="rounded-[50%] bg-[#333] w-[4px] h-[4px] block"></span>
-        <span className="rounded-[50%] bg-[#333] w-[4px] h-[4px] block"></span>
-        <span className="rounded-[50%] bg-[#333] w-[4px] h-[4px] block"></span>
+        <span className="rounded-[50%] bg-[#333] md:w-[4px] w-1 md:h-[4px] h-1 block"></span>
+        <span className="rounded-[50%] bg-[#333] md:w-[4px] w-1 md:h-[4px] h-1 block"></span>
+        <span className="rounded-[50%] bg-[#333] md:w-[4px] w-1 md:h-[4px] h-1 block"></span>
       </div>
       <div
         className={
-          'transition-opacity absolute px-[12px] pt-0 pb-[4px] bg-[#fff] rounded-[8px] w-[324px] shadow-[2px_4px_12px_0_rgba(58,58,58,0.20)] top-[54px] right-[12px] flex flex-col gap-y-[8px] z-10' +
+          'transition-opacity absolute md:px-3 px-1 pt-0 pb-[4px] bg-[#fff] rounded-[8px] md:w-[324px] w-[240px] shadow-[2px_4px_12px_0_rgba(58,58,58,0.20)] md:top-[54px] top-[45px] right-[12px] flex flex-col md:gap-y-2 gap-y-1 z-10' +
           ' ' +
           `${isVisible ? 'opacity-1 visible' : 'opacity-0 invisible'}`
         }
         ref={wrapperRef}
       >
-        <div className="px-[12px] flex justify-between items-center h-[40px] border-b border-[#F2F2F2]">
+        <div className="md:px-3 px-2 flex justify-between items-center h-[40px] border-b border-[#F2F2F2]">
           <p className="font-bold text-[16px]">Actions</p>
           <button onClick={closeMenu}>
             <img src={closeImage} alt="" />
@@ -93,14 +93,14 @@ export const Actions = ({
         </div>
         <button
           onClick={editNote}
-          className="px-[12px] flex items-center h-[40px] text-[14px] hover:bg-[#ECEDF0] active:bg-[#CACACD] rounded-[6px]"
+          className="md:px-3 px-2 flex items-center h-[30px] text-sm hover:bg-[#ECEDF0] active:bg-[#CACACD] rounded-[6px]"
         >
           Edit Note
         </button>
         {note.status !== 'Checked' && (
           <button
             onClick={checkNote}
-            className="px-[12px] flex items-center h-[40px] text-[14px] hover:bg-[#ECEDF0] active:bg-[#CACACD] rounded-[6px]"
+            className="md:px-3 px-2 flex items-center h-[30px] text-sm hover:bg-[#ECEDF0] active:bg-[#CACACD] rounded-[6px]"
           >
             {isSetNoteCheckedLoading ? (
               <Oval
@@ -127,7 +127,7 @@ export const Actions = ({
         )}
         <button
           onClick={removeNote}
-          className="px-[12px] flex items-center h-[40px] text-[#C40808] text-[14px] hover:bg-[#ECEDF0] active:bg-[#CACACD] rounded-[6px]"
+          className="md:px-3 px-2 flex items-center h-[30px] text-sm text-[#C40808] hover:bg-[#ECEDF0] active:bg-[#CACACD] rounded-[6px]"
         >
           Delete
         </button>

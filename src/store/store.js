@@ -20,6 +20,11 @@ export const useNotesStore = create((set, get) => ({
     }))
   },
   filteredNotes: [],
+  setFilteredNotes: (notes) => {
+    set(() => ({
+      filteredNotes: notes,
+    }))
+  },
   activeFilter: '',
   setActiveFilter: filter => {
     set(() => ({

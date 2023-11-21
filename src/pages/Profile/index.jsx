@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getBoards, getUserData, logout } from '../../api/api.js'
 import { Button } from '../../components/Button/index.jsx'
 import editIcon from '../../icons/edit.svg'
@@ -44,7 +44,7 @@ export const Profile = () => {
   const handleUserLogout = () => {
     setIsLogoutLoading(true)
     logout()
-      .then(r => {
+      .then(() => {
         setUser({})
         navigate('/')
       })
@@ -64,8 +64,8 @@ export const Profile = () => {
   }
 
   return (
-    <section className="h-[100%] p-[25px] bg-[#ECEDF0] w-[100%]">
-      <div className="h-[100%] flex flex-col items-center justify-center gap-y-[10px] bg-[#fff] rounded-[12px] relative">
+    <section className="h-[100%] md:p-6 p-3 bg-[#ECEDF0] w-[100%]">
+      <div className="h-[100%] flex flex-col items-center justify-center md:gap-y-3 gap-y-1 bg-[#fff] rounded-[12px] relative p-3">
         {isLoading ? (
           <Oval
             height={30}
@@ -86,10 +86,10 @@ export const Profile = () => {
           />
         ) : (
           <>
-            <div className="absolute top-[15px] flex justify-between right-[20px] gap-x-[8px]">
+            <div className="absolute top-3 flex justify-between md:right-5 right-3 gap-x-2">
               <Button
                 variant="solid"
-                extraClasses="min-h-[30px] h-[30px] text-[14px] flex items-center gap-x-[8px] font-semibold"
+                extraClasses="flex items-center gap-x-2 font-semibold"
                 onClick={openSideModal}
                 disabled={boards.length >= 2}
               >
@@ -99,22 +99,22 @@ export const Profile = () => {
               <Button
                 onClick={handleUserLogout}
                 variant="delete"
-                extraClasses="min-h-[30px] h-[30px] text-[14px] flex items-center font-semibold"
+                extraClasses="flex items-center font-semibold"
                 isLoading={isLogoutLoading}
               >
                 Logout
               </Button>
             </div>
-            <div className="absolute bottom-[16px] flex items-center gap-x-[8px]">
+            <div className="absolute bottom-[16px] flex items-center gap-x-2">
               <p className="text-[#7E7E80] text-[12px]">Boards limit</p>
               <p className="text-[#7E7E80] text-[12px]">{boards.length} / 2</p>
             </div>
-            <h1 className="font-bold text-2xl">Welcome, {user.name}</h1>
-            <p className="mb-2 text-center">
+            <h1 className="font-bold md:text-2xl text-l">Welcome, {user.name}</h1>
+            <p className="md:mb-2 mb-1 text-center md:text-l text-sm">
               This is your profile page, here you can create boards
             </p>
             {boards.length ? (
-              <div className="flex gap-[22px]">
+              <div className="flex md:gap-6 gap-3 md:flex-row md:px-0 flex-col px-4">
                 {boards.map(el => (
                   <ProfileBoard
                     key={el.$id}
@@ -124,7 +124,7 @@ export const Profile = () => {
                 ))}
               </div>
             ) : (
-              <p className="text-[#7E7E80] text-[14px]">
+              <p className="text-[#7E7E80] text-l">
                 You have no active boards
               </p>
             )}

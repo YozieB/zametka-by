@@ -50,13 +50,28 @@ body, html, #root {
   color: #7E7E80;
   font-weight: 400;
   font-size: 16px;
-  line-height: 20px;
 }
 
 .input:focus-visible + .placeholder, .input:not(:placeholder-shown) + .placeholder {
   transform: translateY(-180%);
   font-size: 10px;
   line-height: 12px;
+}
+
+@media(max-width: 728px) {
+  .placeholder {
+    font-size: 14px;
+  }
+
+  .input:focus-visible + .placeholder, .input:not(:placeholder-shown) + .placeholder {
+    transform: translateY(-230%);
+    background: #fff;
+    font-size: 12px;
+  }
+
+  .input:focus-visible + .placeholder--options, .input:not(:placeholder-shown) + .placeholder--options {
+    transform: translateY(-215%);
+  }
 }
 
 /* STATUS COLORS */

@@ -16,10 +16,6 @@ export const createNote = data => {
   )
 }
 
-// export const getNotes = () => {
-//   return databases.listDocuments('6553c3b28d397388abdc', '6558e325c72ed35a0b53')
-// }
-
 export const getNotes = id => {
   return databases.listDocuments(
     '6553c3b28d397388abdc',

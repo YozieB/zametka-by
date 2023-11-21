@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import closeImage from '../../icons/closeActions.svg'
 import { Button } from '../Button/index.jsx'
 import { useBoardStore, useNotesStore } from '../../store/store.js'
@@ -47,22 +47,22 @@ export const RemoveModal = ({
       }
     >
       <div
-        className="bg-white rounded-[6px] shadow-lg max-w-[445px]"
+        className="bg-white rounded-[6px] shadow-lg md:max-w-[445px] max-w-[320px]"
         onMouseDown={e => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center pl-[24px] pr-[12px] pt-[12px] pb-[16px]">
-          <p className="font-bold text-[18px] text-[#38383B]">{heading}</p>
+        <div className="flex justify-between items-center md:p-6 p-3">
+          <p className="font-bold md:text-[18px] text-l text-[#38383B]">{heading}</p>
           <button
             className="flex items-center justify-center"
             onClick={handleClose}
           >
-            <img className="w-[32px] h-[32px]" src={closeImage} alt="" />
+            <img className="md:w-[32px] md:h-[32px] w-[24px] h-[24px]" src={closeImage} alt="" />
           </button>
         </div>
-        <p className="py-[8px] px-[24px] text-[16px]">{description}</p>
-        <div className="flex justify-end px-[24px] py-[16px] gap-x-[12px]">
+        <p className="md:py-2 py-1 md:px-6 px-3 text-[16px]">{description}</p>
+        <div className="flex justify-end md:px-6 px-3 md:py-4 py-3 gap-x-3">
           <Button
-            extraClasses="h-[40px] min-h-[40px] flex items-center"
+            extraClasses="md:h-[40px] h-[35px] md:min-h-[40px] min-h-[35px] flex items-center justify-center md:justify-start w-[100%] md:w-auto"
             variant="outlined"
             onClick={handleClose}
           >
@@ -70,7 +70,7 @@ export const RemoveModal = ({
           </Button>
           <Button
             isLoading={isDeleteNoteLoading || isDeleteBoardLoading}
-            extraClasses="h-[40px] min-h-[40px] flex items-center min-w-[155px]"
+            extraClasses="md:h-[40px] h-[35px] md:min-h-[40px] min-h-[35px] flex items-center min-w-[155px] justify-center w-[100%] md:w-auto"
             variant="delete"
             onClick={deleteElement}
             disabled={isDeleteNoteLoading || isDeleteBoardLoading}
