@@ -1,9 +1,8 @@
 import { Account, Client, Databases, ID, Query } from 'appwrite'
 
-const endpoint = import.meta.env.VITE_API_ENDPOINT
+const endpoint = import.meta.env.VITE_ENDPOINT
 const project = import.meta.env.VITE_PROJECT
 const database = import.meta.env.VITE_DB
-
 
 const client = new Client()
 client
