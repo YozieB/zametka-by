@@ -1,8 +1,24 @@
-# React + Vite
+# Zametka
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### `Ссылка`
 
-Currently, two official plugins are available:
+[https://zametka.yozie.ru](https://zametka.yozie.ru/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### `Описание`
+Проект для трекинга тасков/заметок/проектов.
+
+### `Стек`
+- React.js
+- Zustand 
+- TailwindCSS
+- Appwrite
+- React Router
+- Vercel
+
+### `Интересности и прочая информация`
+- Реализован Oauth с помощью Google
+- Ссылкой на доску можно поделиться, каждый с гугл аккаунтом сможет добавить и изменить заметку
+- Реализована фильтрация заметок
+- Стейты для состояний загрузки у кнопок/компонентов
+- Удалить комнату может только ее владелец
+- Используются переиспользуемые компоненты для попапов, кнопок
