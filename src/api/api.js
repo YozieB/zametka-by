@@ -1,15 +1,19 @@
 import { Account, Client, Databases, ID, Query } from 'appwrite'
 
+const endpoint = import.meta.env.VITE_API_ENDPOINT
+const project = import.meta.env.VITE_PROJECT
+const database = import.meta.env.VITE_DB
+
 const client = new Client()
 client
-  .setEndpoint('https://appwrite.zametka.yozie.ru/v1')
-  .setProject('6553a218b0966f5f5f85')
+  .setEndpoint(endpoint)
+  .setProject(project)
 const databases = new Databases(client)
 const account = new Account(client)
 
 export const createNote = data => {
   return databases.createDocument(
-    '6553c3b28d397388abdc',
+    database,
     '6558e325c72ed35a0b53',
     ID.unique(),
     data
@@ -18,7 +22,7 @@ export const createNote = data => {
 
 export const getNotes = id => {
   return databases.listDocuments(
-    '6553c3b28d397388abdc',
+      database,
     '655b54538172685242fd',
     [Query.equal('$id', id)]
   )
@@ -26,7 +30,7 @@ export const getNotes = id => {
 
 export const updateNoteStatus = (note, status) => {
   return databases.updateDocument(
-    '6553c3b28d397388abdc',
+      database,
     '6558e325c72ed35a0b53',
     note.$id,
     { status }
@@ -35,7 +39,7 @@ export const updateNoteStatus = (note, status) => {
 
 export const updateNoteData = (note, data) => {
   return databases.updateDocument(
-    '6553c3b28d397388abdc',
+      database,
     '6558e325c72ed35a0b53',
     note.$id,
     data
@@ -44,7 +48,7 @@ export const updateNoteData = (note, data) => {
 
 export const deleteNote = note => {
   return databases.deleteDocument(
-    '6553c3b28d397388abdc',
+      database,
     '6558e325c72ed35a0b53',
     note.$id
   )
@@ -80,7 +84,7 @@ export const getUserData = () => {
 
 export const getBoards = userId => {
   return databases.listDocuments(
-    '6553c3b28d397388abdc',
+      database,
     '655b54538172685242fd',
     [Query.equal('ownedBy', userId)]
   )
@@ -88,7 +92,7 @@ export const getBoards = userId => {
 
 export const createBoard = data => {
   return databases.createDocument(
-    '6553c3b28d397388abdc',
+      database,
     '655b54538172685242fd',
     ID.unique(),
     data
@@ -97,7 +101,7 @@ export const createBoard = data => {
 
 export const deleteBoard = board => {
   return databases.deleteDocument(
-    '6553c3b28d397388abdc',
+      database,
     '655b54538172685242fd',
     board.$id
   )

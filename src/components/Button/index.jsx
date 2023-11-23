@@ -17,8 +17,8 @@ export const Button = ({
     >
       {isLoading ? (
         <Oval
-          height={25}
-          width={25}
+          height={20}
+          width={20}
           color="#626268"
           wrapperStyle={{
             display: 'flex',
