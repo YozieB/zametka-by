@@ -4,6 +4,7 @@ const endpoint = import.meta.env.VITE_API_ENDPOINT
 const project = import.meta.env.VITE_PROJECT
 const database = import.meta.env.VITE_DB
 
+
 const client = new Client()
 client
   .setEndpoint(endpoint)
